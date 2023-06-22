@@ -35,13 +35,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               indicator:
                   const _CircleTabIndicator(color: Colors.green, radius: 4),
               labelPadding: const EdgeInsets.only(left: 0, right: 16),
-              tabs: discover
-                  .map((value) => Tab(text: value))
-                  .toList(),
+              tabs: discover.map((value) => Tab(text: value)).toList(),
               labelColor: Colors.purple,
               labelStyle: getRayaTextStyle(RayaTextState.m16, Colors.purple),
-              unselectedLabelColor: Colors.green,
-              unselectedLabelStyle: getRayaTextStyle(RayaTextState.m14, Colors.red),
+              unselectedLabelColor: Colors.black45,
+              unselectedLabelStyle:
+                  getRayaTextStyle(RayaTextState.m14, Colors.red),
               controller: tabController,
               isScrollable: true,
             ),
@@ -96,7 +95,39 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   color: Colors.purple),
             ],
           ),
-          const SizedBox(height: 24)
+          const SizedBox(height: 24),
+          SizedBox(
+            width: double.maxFinite,
+            height: 140,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.only(right: 16),
+              itemCount: 3,
+              itemBuilder: (context, index) => Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                      width: 80,
+                      height: 80,
+                      margin: const EdgeInsets.only(right: 16),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("image/${images[index]}"),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(8),
+                        color: const Color(0xFF9A3939),
+                      )),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: RayaText(
+                        text: "Test",
+                        textState: RayaTextState.m14,
+                        color: Colors.black45),
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

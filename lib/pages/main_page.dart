@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_bloc/cubit/app_cubit.dart';
 import 'package:my_bloc/pages/home_page.dart';
 import 'package:my_bloc/widgets/raya_text.dart';
 
@@ -51,16 +53,14 @@ class _MainPageState extends State<MainPage> {
               child: Text('Drawer Header'),
             ),
             ListTile(
-              title: const Text('Item 1'),
+              title: const Text('Exit'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
+                BlocProvider.of<AppCubit>(context).backToWelcomePage();
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('Item 2'),
+              title: const Text('Under development'),
               onTap: () {
                 // Update the state of the app
                 // ...

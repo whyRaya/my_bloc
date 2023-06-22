@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bloc/widgets/raya_text.dart';
 
+import '../cubit/app_cubit.dart';
 import '../widgets/raya_button.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -48,7 +50,13 @@ class _WelcomePageState extends State<WelcomePage> {
                             text: subtitle[index],
                             textState: RayaTextState.m21),
                         if (index == 2) const SizedBox(height: 75),
-                        if (index == 2) const RayaButton(text: "NEXT",),
+                        if (index == 2)
+                          RayaButton(
+                            text: "NEXT",
+                            onTap: () {
+                              BlocProvider.of<AppCubit>(context).getData();
+                            },
+                          ),
                       ],
                     ),
                     const Spacer(),

@@ -7,16 +7,18 @@ class RayaButton extends StatelessWidget {
     this.text = "",
     this.textState = RayaTextState.m16,
     this.textColor = Colors.white,
+    this.onTap
   });
 
   final String text;
   final RayaTextState textState;
   final Color textColor;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        onPressed: () {},
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.purple),
         child: Row(
