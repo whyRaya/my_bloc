@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_bloc/cubit/app_cubit.dart';
 import 'package:my_bloc/pages/home_page.dart';
+import 'package:my_bloc/pages/todo/todo_pages.dart';
 import 'package:my_bloc/widgets/raya_text.dart';
 
 class MainPage extends StatefulWidget {
@@ -60,12 +61,11 @@ class _MainPageState extends State<MainPage> {
               },
             ),
             ListTile(
-              title: const Text('Under development'),
+              title: const Text('Todo'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const TodoPages()));
               },
             )
           ],

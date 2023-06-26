@@ -23,7 +23,7 @@ class _AppCubitLogicState extends State<AppCubitLogic> {
         builder: (context, state) {
           if (state is WelcomeState) {
             print("WelcomeState");
-            return const TodoPages();
+            return const WelcomePage();
           } else if (state is LoadedState) {
             print("LoadedState");
             return const MainPage();
